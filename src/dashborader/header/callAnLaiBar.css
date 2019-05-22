@@ -1,0 +1,63 @@
+.call-tool {
+  height: 50px;
+  line-height: 45px;
+  display: flex;
+  justify-content: flex-start;
+}
+.login-div {
+  background: #5cadff;
+  color: #fff;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+.getlist-div {
+  background: #fff;
+  color: #444;
+  padding: 0px 10px;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+.getlist-div:hover {
+  color: #bbb;
+}
+.login-div:hover {
+  background: #3399ff;
+}
+.no-getlist-div {
+  padding: 0 10px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background: #ff9900;
+}
+.no-getlist-div:hover {
+  background: #ff6600;
+}
+.status-select {
+  width: 90px;
+  height: 50px;
+  margin-right: 2px;
+}
+.listed-count {
+  font-size: 14px;
+  color: #444;
+  background: #fff;
+}
+.ivu-poptip-popper .ivu-poptip-inner .ivu-poptip-body {
+  padding-top: 10px !important;
+}
+.ivu-icon-help-circled {
+  display: none !important;
+}
+.ivu-poptip-body-message {
+  padding-left: 0 !important;
+}
+.phoneInput input {
+  background-color: transparent!important;
+  color: #fff;
+}
+.phoneInput .ivu-form-item-error-tip {
+  display: none;
+}

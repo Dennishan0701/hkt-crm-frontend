@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看错题</title>
+</head>
+<body>
+<h1>错题</h1>
+
+<div id="content"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<!--<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>-->
+<script>
+  var token = localStorage.getItem('token');
+  var courseRequestUuid = location.search.split('=')[1];
+  $(function(){
+    $.ajax({
+      url: API_BASE_URL + '/TeachingDepartment/getErrorQuestionByCourseRequestUuid',
+      type: 'get',
+      data: {
+        courseRequestUuid: courseRequestUuid,
+        token: token
+      },
+      dataType: 'json',
+      success: function(res) {
+        if (res.code === '100') {
+          var images = res.data[0].images;
+          if(images.length > 0) {
+            var obj = {};
+            for(var i=0; i<images.length; i++) {
+              obj = images[i];
+              $('#content').append('<img src="'+obj.fileAddress+'" title="'+obj.originalFileName+'" alt="'+obj.originalFileName+'" >');
+            }
+          }
+        }else{
+        	$('#content').text(res.code +"："+ res.msg);
+        }
+      },
+      error: function(err) {
+        $('#content').html('<span style="color:red;">查看错题出错！'+err.statusText+'</span>');
+      }
+    });
+  });
+</script>
+</body>
+</html>
